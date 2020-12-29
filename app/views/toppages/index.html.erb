@@ -1,8 +1,48 @@
-<div class="center jumbotron">
-  <div class="text-center">
-    <h1>トップページ！！！！！！！！！</h1>
-    <p>メモ<p>
-    <p>bin/rails s -b 192.168.33.10<p>
-      <p>aaaaaaaaaaa</p>
+<% if logged_in? %>
+  <div class='text-center'>
+    <%= image_tag current_user.avatar, size: '75x75', class: 'avatar' if current_user.avatar.attached?%>
+    <p style="color:#FFFFFF"><%= current_user.name %></p>
   </div>
-</div>
+<% else %>
+  <div class="site-description text-center">
+    <h3 style="font-size: 16px">エンジニアを目指す人のためのマッチングアプリ</h3>
+    <p class='mt-5'>■ ■ ■このWEBサイトについて ■ ■ ■</p>
+    <p>独学ではなかなか技術が身につかない...</p>
+    <p>どこから取り組めばよいかわからない...</p>
+    <p>他の人はどんな勉強法をしているのか参考にしたい...</p>
+    <p class="mb-5">Engineer Matchでは、気になるエンジニアに気軽にメッセージを送れます。</p>
+    <p class='mt-5'>■ ■ ■ テストログイン ■ ■ ■</p>
+    <p>Email : test@test.com</p>
+    <p>Password : password</p>
+  </div>
+
+  <a class="top-signup login", href="<%= login_path %>">Login</a>
+
+  <div class='top' ontouchstart="">
+    <div class="mask">
+      <p class="caption text-center">いいね機能</p>
+      <div class="caption text-center"><p>気になるユーザーをいいねしよう！<br>いいねが返ってきたらメッセージのやりとりができます</p></div>
+    </div>
+  </div>
+
+  <div class=middle ontouchstart="">
+    <div class="mask">
+      <p class="caption text-center">ダイレクトメッセージ機能</p>
+      <div class="caption text-center">気になるユーザーにメッセージを送ってみよう！<br>技術の話でも相談でも！</div>
+    </div>
+  </div>
+
+  <div class='bottom' ontouchstart="">
+    <div class="mask">
+      <p class="caption text-center">タグ機能、つぶやき機能</p>
+      <div class="caption text-center">自分の得意な技術のタグに参加したり、つぶやいてみよう！</br>タグやつぶやきから気になるユーザーを探せます</div>
+    </div>
+  </div>
+
+<%#  <a class="top-signup signup", href="<%= signup_path %>">Sign up</a> %>
+
+<%#  <p class="text-center">or</p>
+
+  <a class="top-signup login", href="<%= login_path %>">Login</a>
+
+<% end %>
